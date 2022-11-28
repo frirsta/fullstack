@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
 
 
-body{
+body {
     box-sizing: border-box;
     font-family: 'Cormorant Garamond', serif;
+    background: #FFF0F5;
+    background: -moz-linear-gradient(top, #FFF0F5 0%, #FFFFFF 50%, #FFF0F5 100%);
+    background: -webkit-linear-gradient(top, #FFF0F5 0%, #FFFFFF 50%, #FFF0F5 100%);
+    background: linear-gradient(to bottom, #FFF0F5 0%, #FFFFFF 50%, #FFF0F5 100%);
 }
 
 h1 {
@@ -11,8 +15,13 @@ h1 {
     text-align: center;
     font-weight: 300;
 }
-.hero{
+
+.hero {
     background: url("/static/images/hero.jpg") no-repeat center center;
     height: 600px;
-    
+
+}
+
+.card {
+    background-color: unset;
 }
