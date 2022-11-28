@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+
+
+body{
+    box-sizing: border-box;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+h1 {
+    font-size: 200px;
+    text-align: center;
+    font-weight: 300;
+}
+.hero{
+    background: url("/static/images/hero.jpg") no-repeat center center;
+    height: 600px;
+    
+}
