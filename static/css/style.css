@@ -26,7 +26,11 @@ h1 {
     background-color: unset;
 }
 
-.card-body{
+.card-title {
+    text-transform: uppercase;
+}
+
+.card-body {
     height: 300px;
 }
 
@@ -36,6 +40,17 @@ h1 {
     width: 600px;
 }
 
-.container{
+.container {
     height: fit-content;
+
+}
+
+.post-container {
+    border: 5px solid pink;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 70px;
+    width: 700px;
 }
