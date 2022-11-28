@@ -25,3 +25,17 @@ h1 {
 .card {
     background-color: unset;
 }
+
+.card-body{
+    height: 300px;
+}
+
+.blog-image {
+    background: url("/static/images/blog-images/blog-image-1.jpg") no-repeat center center;
+    height: 500px;
+    width: 600px;
+}
+
+.container{
+    height: fit-content;
+}

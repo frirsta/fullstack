@@ -3,4 +3,15 @@
 <div class="container-fluid hero">
     <h1>MAGAZINE</h1>
 </div>
+<div class="container">
+    {% for post in post_list %}
+    <div class="blog-image"></div>
+    <div class="card-body">
+      <h5 class="card-title">{{ post.title }}</h5>
+      <p class="card-text">{{post.content}}</p>
+      <p class="card-text"><small class="text-muted">{{ post.author }} | {{ post.created_on }}</small></p>
+      <a href="{% url 'post_detail' post.slug %}">LEARN MORE</a>
+    </div>
+    {% endfor %}
+  </div>
 {% endblock content %}
