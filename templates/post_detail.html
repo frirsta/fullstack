@@ -8,7 +8,22 @@
       <p class="card-text"><small class="text-muted">{{ post.author }} | {{ post.created_on }}</small></p>
     </div>
   </div>
-
+<section>
+  {% if user.is_authenticated %}
+  <form action="{% url 'post_like' post.slug %}" method="POST">
+    {% csrf_token %}
+    {{ post.number_of_likes }}
+    {% if liked %}
+    <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="btn-like"></button>
+    {% else %}
+    <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="btn-like"></button>
+    {% endif %}
+  </form>
+  {% else %}
+  <span class="text-secondary"></span>
+  {% endif %}
+  <span class="text-secondary">{{ post.number_of_likes }}</span>
+</section>
   <div class="card">
     {% for comment in comments %}
     <div class="card-body">
