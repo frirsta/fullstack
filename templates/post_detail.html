@@ -8,5 +8,30 @@
       <p class="card-text"><small class="text-muted">{{ post.author }} | {{ post.created_on }}</small></p>
     </div>
   </div>
+
+  <div class="card">
+    {% for comment in comments %}
+    <div class="card-body">
+      <h5 class="card-title">{{ comment.name }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ comment.created_on }}</h6>
+      <p class="card-text">{{ comment.body | linebreaks }}</p>
+    </div>
+    {% endfor %}
+  </div>
+
+<div class="card">
+      {% if new_comment %}
+      <div class="alert alert-success" role="alert">
+        Your comment is awaiting moderation
+      </div>
+      {% else %}
+      <h3>Leave a comment!</h3>
+      <form method="POST">
+        {{ comment_form.as_p }}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-dark">Submit</button>
+      </form>
+      {% endif %}
+    </div>
   
 {% endblock content %}
