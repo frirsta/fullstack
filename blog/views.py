@@ -10,15 +10,14 @@ class PostList(generic.ListView):
     template_name = 'index.html'
 
 
-# class PostDetail(generic.DetailView):
-#     model = Post
-#     template_name = 'post_detail.html'
-
 def post_detail(request, slug):
     template_name = 'post_detail.html'
     post = get_object_or_404(Post, slug=slug)
     comments = post.comments.filter(active=True)
     new_comment = None
+    liked = False
+    if post.likes.filter(id=request.user.id).exists():
+        liked = True
 
     if request.method == 'POST':
         comment_form = CommentForm(data=request.POST)
@@ -36,13 +35,17 @@ def post_detail(request, slug):
         'post': post,
         'comments': comments,
         'new_comment': new_comment,
-        'comment_form': comment_form
+        'comment_form': comment_form,
+        'liked': liked
 
     })
 
 
 class PostLike(View):
+
     def post(self, request, slug):
+        post = get_object_or_404(Post, slug=slug)
+
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
         else:
